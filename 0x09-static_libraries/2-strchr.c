@@ -3,10 +3,10 @@
 
 /**
  * *_strchr - finds a character within a string
- * @s: search string
- * @c: find char 
+ * @s:search string
+ * @c:find char
  *
- * Return: an indicator to the character's very first appearance
+ * Return:an indicator to the character's very first appearance
  * c in the string s, or NULL if the character is not found
  */
 char *_strchr(char *s, char c)

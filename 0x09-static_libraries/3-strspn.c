@@ -5,8 +5,8 @@
  * @s: evaluate a string
  * @accept: string containing the characters to match in s
  *
- * Return: the number of bytes in the first segment of s that are only made up of accept bytes
- * 
+ * Return: the number of bytes in the first segment of s that are
+ * only made up of accept bytes
  */
 unsigned int _strspn(char *s, char *accept)
 {

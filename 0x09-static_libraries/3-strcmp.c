@@ -2,8 +2,8 @@
 
 /**
  * _strcmp - compare
- * @s1 : char params indicator 
- * @s2 : char params indicator 
+ * @s1 : char params indicator
+ * @s2 : char params indicator
  * Return: *dest
  */
 
