@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * main - output each program argument on a separate line..
+ * main - output each program argument on a separate line.
  * @argc: length or number of arguments
  * @argv: argument array
  *
@@ -18,3 +18,4 @@ int main(int argc, char **argv)
 		(*argv)++;
 	}
 	return (0);
+}
