@@ -6,10 +6,10 @@
  * @c: char storage
  * Return: pointer of an array of chars
  */
-char *create_array(unsigned float size, char c)
+char *create_array(unsigned int size, char c)
 {
 	char *cr;
-	unsigned float a;
+	unsigned int a;
 
 	if (size == 0)
 		return (NULL);
