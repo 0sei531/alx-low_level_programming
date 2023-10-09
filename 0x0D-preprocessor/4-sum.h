@@ -5,6 +5,6 @@
  * that computes the sum of the numbers
  */
 
-#define ABS(x) ((x) < (0) ? ((x) * (-1)) : (x))
+#define SUM(x, y) ((x) + (y))
 
 #endif
