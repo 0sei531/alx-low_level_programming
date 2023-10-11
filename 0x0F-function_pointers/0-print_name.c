@@ -1,7 +1,7 @@
 #include "function_pointers.h"
 
 /**
- * print_name - name printer 
+ * print_name - name printer
  * @name: input name.
  * @f: function pointer.
  * Return: no return.
