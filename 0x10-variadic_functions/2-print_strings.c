@@ -2,20 +2,20 @@
 
 /**
  * print_strings - prints strings.
- * @separator: string to be printed inbetween the strings.
- * @n: number of strings supplied to the function.
+ * @separator: string to be printed between the strings.
+ * @n: number of strings passed to the function.
  *
  * Return: no return.
  */
-void print_strings(const char *separator, const unsigned int g, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list valist;
-	unsigned int s;
+	unsigned int i;
 	char *str;
 
 	va_start(valist, n);
 
-	for (s = 0; s < n; s++)
+	for (i = 0; i < n; i++)
 	{
 		str = va_arg(valist, char *);
 
@@ -24,7 +24,7 @@ void print_strings(const char *separator, const unsigned int g, ...)
 		else
 			printf("(nil)");
 
-		if (s < n - 1)
+		if (i < n - 1)
 			if (separator)
 				printf("%s", separator);
 	}
