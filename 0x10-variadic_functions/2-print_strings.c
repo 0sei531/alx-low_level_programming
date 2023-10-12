@@ -29,6 +29,6 @@ void print_strings(const char *separator, const unsigned int g, ...)
 				printf("%s", separator);
 	}
 
-	printf("\g");
+	printf("\n");
 	va_end(valist);
 }
