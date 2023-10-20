@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -8,9 +9,11 @@
 void free_list(list_t *head)
 {
 	list_t *brief_node;
-        while (head)
+        
+	while (head)
 	{
-		brief_node = head->next;
+		brief_node = head;
+		head = head->next;
 		free(brief_node->str);
 		free(brief_node);
 	}
