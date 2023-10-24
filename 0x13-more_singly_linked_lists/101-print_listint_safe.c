@@ -25,7 +25,7 @@ size_t looped_listint_len(const listint_t *head)
 
 	while (werewolf != NULL)
 	{
-		if (!vampire)
+		if (vampire == werewolf)
 		{
 			vampire = head;
 			while (vampire != werewolf)
@@ -60,7 +60,7 @@ size_t looped_listint_len(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nodes, index = 0;
+	size_t nodes,  index = 0;
 
 	nodes = looped_listint_len(head);
 
