@@ -16,7 +16,7 @@ size_t looped_listint_count(listint_t *head)
 	listint_t *cat, *mouse;
 	size_t nodes = 1;
 
-	if (!head ||! head->next)
+	if (!head || !head->next)
 		return (0);
 
 	cat = head->next;
