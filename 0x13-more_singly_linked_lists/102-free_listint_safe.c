@@ -4,7 +4,7 @@ size_t looped_listint_count(listint_t *head);
 size_t free_listint_safe(listint_t **h);
 
 /**
- * looped_listint_count - Counts the number of distinc nodes
+ * looped_listint_count - Counts the number of unique nodes
  * in a looped listint_t linked list.
  * @head: A pointer to the head of the listint_t to check.
  *
@@ -13,40 +13,39 @@ size_t free_listint_safe(listint_t **h);
  */
 size_t looped_listint_count(listint_t *head)
 {
-	listint_t *vampire;
-	 listint_t *werewolf;
+	listint_t *cat, *mouse;
 	size_t nodes = 1;
 
-	if (!head || !head->next)
+	if (!head ||! head->next)
 		return (0);
 
-	vampire = head->next;
-	werewolf = (head->next)->next;
+	cat = head->next;
+	mouse = (head->next)->next;
 
-	while (werewolf != NULL)
+	while (mouse)
 	{
-		if (vampire == werewolf)
+		if (cat == mouse)
 		{
-			vampire = head;
-			while (vampire != werewolf)
+			cat = head;
+			while (cat != mouse)
 			{
 				nodes++;
-				vampire = vampire->next;
-				werewolf = werewolf->next;
+				cat = cat->next;
+				mouse = mouse->next;
 			}
 
-			vampire = vampire->next;
-			while (vampire != werewolf)
+			cat = cat->next;
+			while (cat != mouse)
 			{
 				nodes++;
-				vampire = vampire->next;
+				cat = cat->next;
 			}
 
 			return (nodes);
 		}
 
-		vampire = vampire->next;
-		werewolf = (werewolf->next)->next;
+		cat = cat->next;
+		mouse = (mouse->next)->next;
 	}
 
 	return (0);
@@ -54,9 +53,9 @@ size_t looped_listint_count(listint_t *head)
 
 /**
  * free_listint_safe - Frees a listint_t list safely (ie.
- * can free lists containing loops)
+ *                     can free lists containing loops)
  * @h: A pointer to the address of
- * the head of the listint_t list.
+ *     the head of the listint_t list.
  *
  * Return: The size of the list that was freed.
  *
@@ -64,7 +63,7 @@ size_t looped_listint_count(listint_t *head)
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *brief;
+	listint_t *brf;
 	size_t nodes, index;
 
 	nodes = looped_listint_count(*h);
