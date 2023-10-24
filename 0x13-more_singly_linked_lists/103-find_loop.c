@@ -12,9 +12,9 @@ listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *vampire, *werewolf;
 
-	vampire = head , werewolf = head;
+	vampire = head, werewolf = head;
 	while (head && vampire && vampire->next)
-	{	
+	{
 		head = head->next;
 		vampire = vampire->next->next;
 
@@ -40,4 +40,4 @@ listint_t *find_listint_loop(listint_t *head)
 
 	return (NULL);
 }
-	
+
