@@ -12,30 +12,32 @@ listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *vampire, *werewolf;
 
-	if (head == NULL || head->next == NULL)
-		return (NULL);
+	vampire = head , werewolf = head;
+	while (head && vampire && vampire->next)
+	{	
+		head = head->next;
+		vampire = vampire->next->next;
 
-	vampire = head->next;
-	hare = (head->next)->next;
-
-	while (werewolf)
-	{
-		if (vampire == werewolf)
+		if (head == vampire)
 		{
-			vampire = head;
-
-			while (vampire != werewolf)
+			head = werewolf;
+			werewolf = vampire;
+			while (1)
 			{
-				vampire = vampire->next;
-				werewolf = werewolf->next;
+				vampire = werewolf;
+				while (vampire->next != head && vampire->next != werewolf)
+				{
+					vampire = vampire->next;
+				}
+				if (vampire->next == head)
+					break;
+
+				head = head->next;
 			}
-
-			return (vampire);
+			return (vampire->next);
 		}
-
-		vampire = vampire->next;
-		werewolf = (werewolf->next)->werewolf;
 	}
 
 	return (NULL);
 }
+	
