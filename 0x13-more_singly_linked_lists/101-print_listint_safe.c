@@ -5,48 +5,48 @@ size_t looped_listint_len(const listint_t *head);
 size_t print_listint_safe(const listint_t *head);
 
 /**
- * looped_listint_len - Counts the number of distinct nodes
+ * looped_listint_len - Counts the number of unique nodes
  * in a looped listint_t linked list.
- * @head: A pointer to the checking listint_'s head
+ * @head: A pointer to the head of the listint_t to check.
  *
  * Return: If the list is not looped - 0.
  * Otherwise - the number of unique nodes in the list.
  */
 size_t looped_listint_len(const listint_t *head)
 {
-	const listint_t *vampire, *werewolf;
+	const listint_t *cat, *mouse;
 	size_t nodes = 1;
 
 	if (!head || !head->next)
 		return (0);
 
-	vampire = head->next;
-	werewolf = (head->next)->next;
+	cat = head->next;
+	mouse = (head->next)->next;
 
-	while (werewolf != NULL)
+	while (mouse)
 	{
-		if (vampire == werewolf)
+		if (cat == mouse)
 		{
-			vampire = head;
-			while (vampire != werewolf)
+			cat = head;
+			while (cat != mouse)
 			{
 				nodes++;
-				vampire = vampire->next;
-				werewolf = werewolf->next;
+				cat = cat->next;
+				mouse = mouse->next;
 			}
 
-			vampire = vampire->next;
-			while (vampire != werewolf)
+			cat = cat->next;
+			while (cat != mouse)
 			{
 				nodes++;
-				werewolf = werewolf->next;
+				cat = cat->next;
 			}
 
 			return (nodes);
 		}
 
-		vampire = vampire->next;
-		werewolf = (werewolf->next)->next;
+		cat = cat->next;
+		mouse = (mouse->next)->next;
 	}
 
 	return (0);
@@ -60,7 +60,7 @@ size_t looped_listint_len(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nodes,  index = 0;
+	size_t nodes, index = 0;
 
 	nodes = looped_listint_len(head);
 
@@ -86,4 +86,3 @@ size_t print_listint_safe(const listint_t *head)
 
 	return (nodes);
 }
-
