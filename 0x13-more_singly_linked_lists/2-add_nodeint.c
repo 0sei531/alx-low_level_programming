@@ -4,10 +4,10 @@
  * add_nodeint - Adds a new node at the beginning
  * of a listint_t list.
  * @head: a pointer pointing to the listint_t list's head address.
- * @n: The integer contained by the new node 
+ * @n: The integer contained by the new node
  *
- * Return: the address of the new element, or NULL if it failed
- * 
+ * Return: the address of the new element,
+ * or NULL if it failed
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
