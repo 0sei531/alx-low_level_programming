@@ -31,7 +31,7 @@ size_t looped_listint_count(listint_t *head)
 			while (vampire != werewolf)
 			{
 				nodes++;
-			vampire = vampire->next;
+				vampire = vampire->next;
 				werewolf = werewolf->next;
 			}
 
@@ -64,7 +64,7 @@ size_t looped_listint_count(listint_t *head)
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *tmp;
+	listint_t *brief;
 	size_t nodes, index;
 
 	nodes = looped_listint_count(*h);
@@ -73,9 +73,9 @@ size_t free_listint_safe(listint_t **h)
 	{
 		for (; h != NULL && *h != NULL; nodes++)
 		{
-			tmp = (*h)->next;
+			brf = (*h)->next;
 			free(*h);
-			*h = tmp;
+			*h = brf;
 		}
 	}
 
@@ -83,9 +83,9 @@ size_t free_listint_safe(listint_t **h)
 	{
 		for (index = 0; index < nodes; index++)
 		{
-			tmp = (*h)->next;
+			brf = (*h)->next;
 			free(*h);
-			*h = tmp;
+			*h = brf;
 		}
 
 		*h = NULL;
