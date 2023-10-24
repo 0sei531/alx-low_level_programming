@@ -4,7 +4,7 @@
 /**
  * print_listint - Prints all the elements of a listint_t list.
  * @h: A pointer to the list_t list's head.
- * 
+ *
  * Return:numbers of nodes in  list_t list.
  */
 size_t print_listint(const listint_t *h)
