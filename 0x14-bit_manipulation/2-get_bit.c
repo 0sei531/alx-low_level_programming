@@ -5,8 +5,7 @@
  * @n: The bit.
  * @index: The index to get the value at - indices start at 0.
  *
- * Return: 
- *         
+ * Return:value
  */
 int get_bit(unsigned long int n, unsigned int index)
 {

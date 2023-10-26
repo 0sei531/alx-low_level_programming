@@ -6,7 +6,7 @@
  * @index: The index to set the value at - indices start at 0.
  *
  * Return:value
- */ 
+ */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
 	if (index > 16)
