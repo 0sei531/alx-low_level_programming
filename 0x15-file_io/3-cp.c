@@ -5,8 +5,8 @@
 int comp_close(int);
 /**
  * main - Main function to copy files
- * @argc: The number of passed arguments
- * @argv: The pointers to array arguments
+ * @bc: The number of passed arguments
+ * @ad: The pointers to array arguments
  * Return: 1 on success, exits on failure
  */
 int main(int bc, char **ad)
