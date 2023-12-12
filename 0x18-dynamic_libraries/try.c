@@ -1,10 +1,18 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 
-int printf(const char *format, ...)
+void custom_print(const char *message)
 {
-	 write(1, "9 8 10 24 75 +9\n", 17);
-         write(1, "Congratulations, you win the Jackpot!\n", 38);
-         exit(EXIT_SUCCESS);
+	write(1, message, strlen(message));
+        write(1, "\n", 1);
 }
+
+int main()
+{
+	custom_print("9 8 10 24 75 +9");
+        custom_print("Congratulations, you win the Jackpot!");
+        exit(EXIT_SUCCESS);
+}
+
