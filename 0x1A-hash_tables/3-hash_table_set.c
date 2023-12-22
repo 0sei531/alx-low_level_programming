@@ -7,22 +7,21 @@
  * @head: a pointer to the singly-linked list
  * @key: a pointer to the element's key
  * @value: a pointer to the element's new value
+ *
  * Return: 1 upon success, otherwise 0
  */
-
-int hash_chain_set(hash_node_t *head, const char *key, const char *value)
+int hash_chain_set(hash_node_t *head, const char *key, char *value)
 {
 	if (head)
-    {
-        if (strcmp(key, head->key) == 0)
-        {
-            free(head->value);
-            head->value = strdup(value);
-            return (head->value != NULL);
-        }
-        return hash_chain_set(head->next, key, value);
-    }
-    return (0);
+	{
+		if (strcmp(key, head->key))
+			return (hash_chain_set(head->next, key, value));
+
+		free(head->value);
+		head->value = value;
+		return (1);
+	}
+	return (0);
 }
 
 /**
@@ -35,46 +34,43 @@ int hash_chain_set(hash_node_t *head, const char *key, const char *value)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-    hash_node_t *new_node = NULL;
-    char *new_value = NULL;
-    unsigned long int index = 0;
+	hash_node_t *new_node = NULL;
+	char *new_value = NULL;
+	unsigned long int index = 0;
 
-    if (!(ht && key && *key))
-        return (0);
+	if (!(ht && key && *key))
+		return (0);
 
-    if (value)
-    {
-        new_value = strdup(value);
-        if (!new_value)
-            return (0);
-    }
+	if (value)
+	{
+		new_value = strdup(value);
+		if (!new_value)
+			return (0);
+	}
 
-    index = key_index((const unsigned char *)key, ht->size);
+	index = key_index((const unsigned char *) key, ht->size);
 
-    if (hash_chain_set(ht->array[index], key, new_value))
-    {
-        free(new_value);
-        return (1);
-    }
+	if (hash_chain_set(ht->array[index], key, new_value))
+		return (1);
 
-    new_node = malloc(sizeof(*new_node));
-    if (!new_node)
-    {
-        free(new_value);
-        return (0);
-    }
+	new_node = malloc(sizeof(*new_node));
+	if (!new_node)
+	{
+		free(new_value);
+		return (0);
+	}
 
-    new_node->key = strdup(key);
-    if (!new_node->key)
-    {
-        free(new_value);
-        free(new_node);
-        return (0);
-    }
+	new_node->key = strdup(key);
+	if (!new_node->key)
+	{
+		free(new_value);
+		free(new_node);
+		return (0);
+	}
 
-    new_node->value = new_value;
-    new_node->next = ht->array[index];
-    ht->array[index] = new_node;
-    return (1);
+	new_node->value = new_value;
+	new_node->next = ht->array[index];
+	ht->array[index] = new_node;
+	return (1);
 }
 
